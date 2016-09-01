@@ -88,6 +88,7 @@
         <link href="src/css/widget.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="src/js/widgetStrings.js"></script>
+        <script src="src/js/widgetConf.js"></script>
         <script src="src/js/widget.js"></script>
         <!-- FIN INTEGRAR-->
     </head>
@@ -155,13 +156,11 @@
                                     <div class="widget_stars" id="widget_stars_rate_part">
                                         <div id="loading"></div>
                                         <div id="widget_content" class="widget_content">
-                                            <div tabindex="0" id="rate">
-                                                <h1><span class="widgetStrings">TITLE</span> <span id="valuemedia"></span></h1>
+                                            <div id="rate">
+                                                <h1 tabindex="0"><span class="widgetStrings">TITLE</span> <span id="valuemedia"></span></h1>
                                                 <p id="valuemedia_stars" class="widget_categorization" aria-hidden="true"></p>
                                             </div>
                                             <div class="separator"></div>
-
-                                            
                                         </div>
                                     </div>
                                     <!-- START WIDGET -->
@@ -296,23 +295,23 @@
                                 <!--<a href="#" id="buttonHistogram">Show histogram</a>-->
                                 <table>
                                     <tr>
-                                        <th><a href="#listComments">1 <span class="visuallyhidden">star</span>&#9733;</a></th>
+                                        <th><a href="#listComments">1 <span class="visuallyhidden"><span class="widgetStrings">STAR</span></span>&#9733;</a></th>
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <th><a href="#listComments">2 <span class="visuallyhidden">stars</span>&#9733;</a></th>
+                                        <th><a href="#listComments">2 <span class="visuallyhidden"><span class="widgetStrings">STARS</span></span>&#9733;</a></th>
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <th><a href="#listComments">3 <span class="visuallyhidden">stars</span>&#9733;</a></th>
+                                        <th><a href="#listComments">3 <span class="visuallyhidden"><span class="widgetStrings">STARS</span></span>&#9733;</a></th>
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <th><a href="#listComments">4 <span class="visuallyhidden">stars</span>&#9733;</a></th>
+                                        <th><a href="#listComments">4 <span class="visuallyhidden"><span class="widgetStrings">STARS</span></span>&#9733;</a></th>
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <th><a href="#listComments">5 <span class="visuallyhidden">stars</span>&#9733;</a></th>
+                                        <th><a href="#listComments">5 <span class="visuallyhidden"><span class="widgetStrings">STARS</span></span>&#9733;</a></th>
                                         <td></td>
                                     </tr>
                                 </table>
@@ -333,19 +332,19 @@
                                     <form action="">
                                         <p class="widget_categorization widget_stars_rate">
                                             <input id="widget_stars_rate_1" type="radio" name="widget_stars_rate" value="1" class="visuallyhidden" checked="checked">
-                                            <label for="widget_stars_rate_1" class="widget_label"><span class="visuallyhidden">1 star</span><span class="spanstar">&#9733</span></label>
+                                            <label for="widget_stars_rate_1" class="widget_label"><span class="visuallyhidden">1 <span class="widgetStrings">STAR</span></span><span class="spanstar">&#9733</span></label>
 
                                             <input id="widget_stars_rate_2" type="radio" name="widget_stars_rate" value="2" class="visuallyhidden">
-                                            <label for="widget_stars_rate_2" class="widget_label"><span class="visuallyhidden">2 stars</span><span class="spanstar">&#9733</span></label>
+                                            <label for="widget_stars_rate_2" class="widget_label"><span class="visuallyhidden">2 <span class="widgetStrings">STARS</span></span><span class="spanstar">&#9733</span></label>
 
                                             <input id="widget_stars_rate_3" type="radio" name="widget_stars_rate" value="3" class="visuallyhidden">
-                                            <label for="widget_stars_rate_3" class="widget_label"><span class="visuallyhidden">3 stars</span><span class="spanstar">&#9733</span></label>
+                                            <label for="widget_stars_rate_3" class="widget_label"><span class="visuallyhidden">3 <span class="widgetStrings">STARS</span></span><span class="spanstar">&#9733</span></label>
 
                                             <input id="widget_stars_rate_4" type="radio" name="widget_stars_rate" value="4" class="visuallyhidden">
-                                            <label for="widget_stars_rate_4" class="widget_label"><span class="visuallyhidden">4 stars</span><span class="spanstar">&#9733</span></label>
+                                            <label for="widget_stars_rate_4" class="widget_label"><span class="visuallyhidden">4 <span class="widgetStrings">STARS</span></span><span class="spanstar">&#9733</span></label>
 
                                             <input id="widget_stars_rate_5" type="radio" name="widget_stars_rate" value="5" class="visuallyhidden">
-                                            <label for="widget_stars_rate_5" class="widget_label"><span class="visuallyhidden">5 stars</span><span class="spanstar">&#9733</span></label>
+                                            <label for="widget_stars_rate_5" class="widget_label"><span class="visuallyhidden">5 <span class="widgetStrings">STARS</span></span><span class="spanstar">&#9733</span></label>
                                         </p>
                                         
                                         <label for="widget_title_comment"><span class="widgetStrings">LABEL REVIEW TITLE</span></label>
@@ -353,10 +352,10 @@
                                         
                                         <label for="widget_comment"><span class="widgetStrings">LABEL REVIEW BODY</span></label>
                                         <textarea rows="2" cols="32" name="widget_comment" id="widget_comment"></textarea>
-                                        
+                                        <div aria-live="polite" class="errors" id="errors"></div>
                                         <p class="aligncenter">
-                                            <button href="#" class="blue_button" id="buttonBack">Back</button>
-                                            <button class="green_button" id="buttonSend">Send</button>
+                                            <button href="#" class="blue_button" id="buttonBack"><span class="widgetStrings">BACK</span></button>
+                                            <button class="green_button" id="buttonSend"><span class="widgetStrings">SEND</span></button>
                                         </p>
                                     </form>
                                 </div>

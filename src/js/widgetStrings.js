@@ -8,7 +8,12 @@ var widgetStrings = (function () {
       DELETE : "Delete your review",
       REPLY : "Respond to review",
       SEND : "Send",
+      BACK: "Back",
       CANCEL : "Cancel",
+      COMMENTS : "Comments",
+      COMMENT: "Comment",
+      STARS: "Stars",
+      STAR: "Star",
       "MORE COMMENTS" : "More comments",
       "LESS COMMENTS" : "Less comments",
       "LABEL REVIEW INTRO" : "Your review of this product",
@@ -17,7 +22,8 @@ var widgetStrings = (function () {
       "LABEL REVIEW BODY" : "Write your review here",
       "MESSAGE REVIEW OK" : "Thank you!",
       "EDIT REPLY"        : "Edit reply",
-      "DELETE REPLY"      : "Delete reply"
+      "DELETE REPLY"      : "Delete reply",
+      "EMPTY FIELDS" : "Please write a title and comment"
   };
   // var _locale = "en-UK";
   var _locale = "pt-PT";
