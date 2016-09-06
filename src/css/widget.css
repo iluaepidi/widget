@@ -7,9 +7,9 @@
 	width: 350px;
 	position: fixed;
 	top: 45px;
-	right: 0px;
+	right:0px;
 	background-color: #fff;
-	/*border: 1px solid #b7bdb9;*/
+	border: 1px solid #b7bdb9;
 }
 /* New interface */
 #widget_stars_rate_part.widget_stars{
@@ -27,7 +27,7 @@
 	width:auto;
 	position:static;
 	background-color: #fff;
-	/*border: 1px solid #b7bdb9;*/
+	border:none;
 }
 #widget_stars_comments_part.widget_stars #widget_content{
 	border: 1px solid #b7bdb9;
@@ -42,6 +42,7 @@
 
 #widget_stars_comments_part.widget_stars #histogram{
 	position:static;
+    width:33%;
 }
 
 
@@ -56,11 +57,16 @@
 
 .widget_stars h1,
 .widget_stars .h1{
-	text-align: right;
+	text-align: center;
 	/*margin-top: 15px;*/
 	font-weight: bold;
 	font-size: 18px;
 	/*margin-bottom: -0.5rem;*/
+}
+
+#widget_stars_rate_part.widget_stars h1,
+#widget_stars_rate_part.widget_stars .h1{
+	text-align: right;
 }
 
 .widget_stars h1 #valuemedia,
@@ -85,7 +91,7 @@
 	text-align:center;
 	/*display:none;*/
 	overflow:hidden;
-	width:33%;
+	width:100%;
 	z-index:100;
     padding:2px;
 }
@@ -192,7 +198,7 @@
 }
 
 .widget_stars .comments ul li ul{
-	margin-left:5em;
+	margin-left:2em;
 	border-left:1px solid #b7bdb9;
 	padding-left:1em;
 }
