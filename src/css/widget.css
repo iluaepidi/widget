@@ -42,7 +42,7 @@
 
 #widget_stars_comments_part.widget_stars #histogram{
 	position:static;
-    width:33%;
+    width:40%;
 }
 
 
@@ -85,6 +85,10 @@
 	margin:0px auto 0px auto;
 }
 
+.widget_stars #review_stars .stars{
+    font-size:30px;
+}
+
 .widget_stars #histogram{
 	position:absolute;
 	margin:0px;
@@ -119,6 +123,9 @@
 .widget_stars #histogram table td div{
 	background-color:#ddd ;
 	border:1px solid #ccc;
+    display:inline-block;
+    width:75%;
+    margin-right:5px;
 }
 
 .widget_stars #histogram table td span{
@@ -276,7 +283,7 @@
 
 .widget_stars .red_button{
 	color: #fff;
-	background-color: #aaa;
+	background-color: #666;
 	border-color: #2e6da4;
 	padding: 6px 12px;
     margin-right:5px;
@@ -317,8 +324,9 @@
 .widget_stars a.blue_button:hover,
 .widget_stars a.green_button:hover,
 .widget_stars a.red_button:hover{
-    outline:1px solid #666;
-    color:#000;
+    outline:1px solid #333;
+    text-shadow:1px 1px #333;
+    /*color:#000;*/
 }
 
 /* Stars */

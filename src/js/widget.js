@@ -177,8 +177,7 @@ var WidgetUI = {
     },
     setWidgetStateCallback: function(data){
         var ncomments = data.comments.length > 1 ? WidgetConf.strings('CUSTOMER REVIEWS') : WidgetConf.strings('CUSTOMER REVIEW');
-        var nstars = data.comments.length > 1 ? WidgetConf.strings('STARS') : WidgetConf.strings('STAR');
-        var rating_text = '' + data.value + ' ' + WidgetConf.strings('OUT OF') + ' 5 ' + nstars;
+        var rating_text = '' + data.value + ' ' + WidgetConf.strings('OUT OF') + ' 5 ' + WidgetConf.strings('STARS');
         var review_test = '<a href="#widget_stars_comments_part">' + data.comments.length + ' ' + ncomments + '</a>';
         $("#starstext").html(rating_text);
         $("#valuemedia").html(review_test);
@@ -187,6 +186,7 @@ var WidgetUI = {
             stars_rate += (i <= data.value) ? '&#9733;' : '&#9734;';
         }
         $("#valuemedia_stars").html(stars_rate);
+        $('#review_stars').html('<span class="stars">' + stars_rate + '</span> <span class="visuallyhidden">' + rating_text + '</span> ' + $('#valuemedia a').text());
         $("#widget_comments_ul").empty();
         WidgetUI.setAddEditComment(false);
         $("#morecomments").show();
@@ -313,8 +313,8 @@ var WidgetUI = {
         }
         for(var i = 0; i < histogram.length; i++){
             $('#histogram table tr').eq(i).find('td').html(
-                $('<div>').append($('<span>').css({width: histogram[i].percent + '%'}).text(histogram[i].percent.toFixed(2) + '%'))
-            );
+                $('<div>').append($('<span>').css({width: histogram[i].percent + '%'}).html('&nbsp;'))
+            ).append(histogram[i].percent.toFixed(2) + '%');
         }
     },
     likeComment: function(IdComment){
@@ -345,9 +345,14 @@ var WidgetUI = {
         $("#morecomments").hide();
     },
     addComment: function(comment){
-        var img = '<img src="src/img/user' + comment.value + 'star.png" alt="" height="28" width="28">';
-        var title = '<strong><span>' + comment.title + '</span> (' + comment.value + '/5)</strong>';
-        var date = '<span class="date">&#128197 ' + new Date(comment.date).toLocaleDateString(WidgetConf.currentLocale()) + '</span>';
+        var img = '<img src="src/img/user.png" alt="" height="28" width="28">';
+        var stars = '';
+        for(var i = 1; i <= 5; i++){
+            stars += (i <= comment.value) ? '&#9733;' : '&#9734;';
+        }
+        var stars_text = '<span class="visuallyhidden">' + comment.value + ' ' + WidgetConf.strings('OUT OF') + ' 5 ' + WidgetConf.strings('STARS') + '</span>';
+        var title = '<strong><span>' + comment.title + '</span> ' + stars_text + stars + '</strong>';
+        var date = '<span class="date"> ' + new Date(comment.date).toLocaleDateString(WidgetConf.currentLocale()) + '</span>';
         var body = '<div>' + comment.c + '</div>';
         var html = img + title + '<br/>' + date + '<br />' + body;
         var li = $('<li>').html(html).addClass('user-' + comment.user).addClass('comment-' + comment.id).attr({tabIndex:0});
