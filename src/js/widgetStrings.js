@@ -5,7 +5,7 @@ var widgetStrings = (function () {
       "CUSTOMER REVIEW" : "Customer review",
       "CUSTOMER REVIEWS" : "Customer reviews",
       "OUT OF" : "out of",
-      CREATE : "Write a customer review",
+      CREATE : "Write your review",
       READ : "",
       UPDATE : "Edit your review",
       DELETE : "Delete your review",

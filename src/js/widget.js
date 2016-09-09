@@ -311,6 +311,7 @@ var WidgetUI = {
             histogram[data[i].value - 1].votes++;
             histogram[data[i].value - 1].percent = histogram[data[i].value - 1].votes * 100 / data.length;
         }
+        histogram.reverse();
         for(var i = 0; i < histogram.length; i++){
             $('#histogram table tr').eq(i).find('td').html(
                 $('<div>').append($('<span>').css({width: histogram[i].percent + '%'}).html('&nbsp;'))
@@ -383,8 +384,8 @@ var WidgetUI = {
                 if(WidgetConf.isVendor && this.user == WidgetConf.user){
                     var reply_edit   = $('<a>').attr({href:'#'}).text(WidgetConf.strings('EDIT REPLY')).addClass('edit_reply blue_button').data({IdReply: this.id, IdComment: comment.id});
                     var reply_delete = $('<a>').attr({href:'#'}).text(WidgetConf.strings('DELETE REPLY')).addClass('delete_reply red_button').data({IdReply: this.id, IdComment: comment.id});
-                    li_reply.append(reply_edit);
                     li_reply.append(reply_delete);
+                    li_reply.append(reply_edit);
                     //Remove Reply comment link
                     //Hide for backward compatibility
                     li.find('.reply_button').hide();

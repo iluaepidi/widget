@@ -201,7 +201,9 @@
 }
 
 .widget_stars .comments ul li a.reply_button{
-	margin-left:15px;
+	/*margin-left:15px;*/
+    float:right;
+    clear:both;
 }
 
 .widget_stars .comments ul li ul{
