@@ -1,7 +1,12 @@
 describe('Widget', function(){
 	
-	jasmine.getFixtures().fixturesPath = './';
-	jasmine.getStyleFixtures().fixturesPath = './../src/css/';
+	jasmine.getFixtures().fixturesPath = 'tests/';
+	jasmine.getStyleFixtures().fixturesPath = 'src/css/';
+    if(typeof standalone != 'undefined' && standalone){
+        jasmine.getFixtures().fixturesPath = './';
+        jasmine.getStyleFixtures().fixturesPath = './../src/css/';
+    }
+
 	var html = readFixtures('ul.html');
 	var widget_regex = /<section id=\"widget\"[^>]*>((.|[\n\r])*)<\/section>/im;
 	var array_matches = widget_regex.exec(html);
