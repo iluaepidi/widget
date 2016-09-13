@@ -96,7 +96,7 @@
     
     <body id="fluid-id-1bzxr06a-133">
         <a class="topbar-skip-link" href="#main" tabindex="0">Skip to Main Content</a>
-        <a class="topbar-skip-link" href="#widget" tabindex="0">Widget</a>
+        <a class="topbar-skip-link" href="#widget_stars_comments_part" tabindex="0">Customer reviews</a>
 
         <!-- TODO: Migrate this to a "content aware" part of the API when this feature is complete:  https://github.com/GPII/gpii-express/pull/6 -->
         <div class="row collapse ul-topbar">
@@ -158,8 +158,7 @@
                                         <div id="loading"></div>
                                         <div id="widget_content" class="widget_content">
                                             <div id="rate">
-                                                <h1 tabindex="0"><span class="widgetStrings">TITLE</span> <span id="valuemedia"></span></h1>
-                                                <p id="valuemedia_stars" class="widget_categorization" aria-hidden="true"></p>
+                                                <p tabindex="0" class="h1"><span id="valuemedia_stars" class="widget_categorization" aria-hidden="true"></span><span id="starstext" class="visuallyhidden"></span> <span id="valuemedia"></span></p>
                                             </div>
                                             <div class="separator"></div>
                                         </div>
@@ -292,19 +291,12 @@
                         <!-- START WIDGET -->
                         <h1><span class="widgetStrings">TITLE</span></h1>
                         <div class="widget_stars" id="widget_stars_comments_part">
+                            <p id="review_stars"></p>
                             <div id="histogram" class="">
                                 <!--<a href="#" id="buttonHistogram">Show histogram</a>-->
                                 <table>
                                     <tr>
-                                        <th><a href="#listComments">1 <span class="visuallyhidden"><span class="widgetStrings">STAR</span></span>&#9733;</a></th>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <th><a href="#listComments">2 <span class="visuallyhidden"><span class="widgetStrings">STARS</span></span>&#9733;</a></th>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <th><a href="#listComments">3 <span class="visuallyhidden"><span class="widgetStrings">STARS</span></span>&#9733;</a></th>
+                                        <th><a href="#listComments">5 <span class="visuallyhidden"><span class="widgetStrings">STARS</span></span>&#9733;</a></th>
                                         <td></td>
                                     </tr>
                                     <tr>
@@ -312,7 +304,15 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <th><a href="#listComments">5 <span class="visuallyhidden"><span class="widgetStrings">STARS</span></span>&#9733;</a></th>
+                                        <th><a href="#listComments">3 <span class="visuallyhidden"><span class="widgetStrings">STARS</span></span>&#9733;</a></th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th><a href="#listComments">2 <span class="visuallyhidden"><span class="widgetStrings">STARS</span></span>&#9733;</a></th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th><a href="#listComments">1 <span class="visuallyhidden"><span class="widgetStrings">STAR</span></span>&#9733;</a></th>
                                         <td></td>
                                     </tr>
                                 </table>
@@ -355,8 +355,8 @@
                                         <textarea rows="2" cols="32" name="widget_comment" id="widget_comment"></textarea>
                                         <div aria-live="polite" class="errors" id="errors"></div>
                                         <p class="aligncenter">
-                                            <button href="#" class="blue_button" id="buttonBack"><span class="widgetStrings">BACK</span></button>
-                                            <button class="green_button" id="buttonSend"><span class="widgetStrings">SEND</span></button>
+                                            <button href="#" class="red_button" id="buttonBack"><span class="widgetStrings">BACK</span></button>
+                                            <button class="blue_button" id="buttonSend"><span class="widgetStrings">SEND</span></button>
                                         </p>
                                     </form>
                                 </div>
@@ -366,8 +366,8 @@
                                 </div>
                                     
                                 <p id="buttonprovideoyourrate">
-                                    <a href="#" class="blue_button" id="buttonRate"><span class="widgetStrings">CREATE</span></a>
                                     <a href="#" class="red_button" id="buttonDelete"><span class="widgetStrings">DELETE</span></a>
+                                    <a href="#" class="blue_button" id="buttonRate"><span class="widgetStrings">CREATE</span></a>
                                 </p>
                                 
                             </div>

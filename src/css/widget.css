@@ -7,7 +7,7 @@
 	width: 350px;
 	position: fixed;
 	top: 45px;
-	right: 0px;
+	right:0px;
 	background-color: #fff;
 	border: 1px solid #b7bdb9;
 }
@@ -27,6 +27,9 @@
 	width:auto;
 	position:static;
 	background-color: #fff;
+	border:none;
+}
+#widget_stars_comments_part.widget_stars #widget_content{
 	border: 1px solid #b7bdb9;
 }
 #widget_stars_rate_part.widget_stars .separator{
@@ -39,6 +42,7 @@
 
 #widget_stars_comments_part.widget_stars #histogram{
 	position:static;
+    width:40%;
 }
 
 
@@ -47,19 +51,31 @@
 	box-shadow:none;
 	width:100%;
 	border:none;
-	border-bottom: 1px solid #b7bdb9;
+	/*border-bottom: 1px solid #b7bdb9;*/
 }
 /* New interface */
 
-.widget_stars h1{
+.widget_stars h1,
+.widget_stars .h1{
 	text-align: center;
-	margin-top: 15px;
+	/*margin-top: 15px;*/
 	font-weight: bold;
 	font-size: 18px;
-	margin-bottom: -0.5rem;
+	/*margin-bottom: -0.5rem;*/
 }
 
-.widget_stars h1:focus{
+#widget_stars_rate_part.widget_stars h1,
+#widget_stars_rate_part.widget_stars .h1{
+	text-align: right;
+}
+
+.widget_stars h1 #valuemedia,
+.widget_stars .h1 #valuemedia{
+	font-size: 16px;
+}
+
+.widget_stars h1:focus,
+.widget_stars .h1:focus{
 	outline:1px solid #666;
 }
 
@@ -67,6 +83,10 @@
 	border-bottom: groove #000000;
 	width:23%;
 	margin:0px auto 0px auto;
+}
+
+.widget_stars #review_stars .stars{
+    font-size:30px;
 }
 
 .widget_stars #histogram{
@@ -87,13 +107,25 @@
 	margin:auto;
 }
 
+.widget_stars #histogram table tr{
+    background-color:#fff;
+}
+
 .widget_stars #histogram table tr:hover,
 .widget_stars #histogram table tr.hover{
     outline:1px solid #666;
 }
 
 .widget_stars #histogram table th{
-	width:10%;
+	width:15%;
+}
+
+.widget_stars #histogram table td div{
+	background-color:#ddd ;
+	border:1px solid #ccc;
+    display:inline-block;
+    width:75%;
+    margin-right:5px;
 }
 
 .widget_stars #histogram table td span{
@@ -154,21 +186,28 @@
 }
 
 .widget_stars .comments ul li span.like{
-	color:#666;
+	color:#c03;
 	padding-right:5px;
 }
 
 .widget_stars .comments ul li a span.like{
-	color:#c03;
+	color:#666;
 }
 
 .widget_stars .comments ul li a:hover span.like,
 .widget_stars .comments ul li a:focus span.like{
 	text-shadow:1px 1px #666;
+    color:#000;
+}
+
+.widget_stars .comments ul li a.reply_button{
+	/*margin-left:15px;*/
+    float:right;
+    clear:both;
 }
 
 .widget_stars .comments ul li ul{
-	margin-left:5em;
+	margin-left:2em;
 	border-left:1px solid #b7bdb9;
 	padding-left:1em;
 }
@@ -217,8 +256,9 @@
 }
 
 .widget_stars #provideoyourrateok > p:first-child{
-	background-color:#43ac6a; 
-	color:#fff;
+	/*background-color:#43ac6a; 
+	color:#fff;*/
+    font-weight:bold;
 	margin:0px 10px 20px 10px;
 	padding:50px 0px;
 }
@@ -232,6 +272,7 @@
 	background-color: #337ab7;
 	border-color: #2e6da4;
 	padding: 6px 12px;
+    margin-right:5px;
 }
 
 .widget_stars .green_button{
@@ -239,13 +280,15 @@
 	background-color: #006633;
 	border-color: #2e6da4;
 	padding: 6px 12px;
+    margin-right:5px;
 }
 
 .widget_stars .red_button{
 	color: #fff;
-	background-color: #cc0033;
+	background-color: #666;
 	border-color: #2e6da4;
 	padding: 6px 12px;
+    margin-right:5px;
 }
 
 .widget_stars #buttonRate:before,
@@ -265,7 +308,7 @@
 	white-space:nowrap;
 	display:inline-block;
 	overflow:hidden;
-	width:38px;
+	/*width:38px;*/
 }
 
 .widget_stars #buttonRate:hover,
@@ -275,8 +318,17 @@
 	width:auto;
 }
 
-.widget_stars button:focus{
-    outline:1px solid #666;
+.widget_stars button:focus,
+.widget_stars a.blue_button:focus,
+.widget_stars a.green_button:focus,
+.widget_stars a.red_button:focus,
+.widget_stars button:hover,
+.widget_stars a.blue_button:hover,
+.widget_stars a.green_button:hover,
+.widget_stars a.red_button:hover{
+    outline:1px solid #333;
+    text-shadow:1px 1px #333;
+    /*color:#000;*/
 }
 
 /* Stars */
