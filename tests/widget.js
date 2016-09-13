@@ -1,6 +1,6 @@
 describe('Widget', function(){
 	
-	jasmine.getFixtures().fixturesPath = '';
+	jasmine.getFixtures().fixturesPath = './';
 	jasmine.getStyleFixtures().fixturesPath = 'src/css/';
     if(typeof standalone != 'undefined' && standalone){
         jasmine.getFixtures().fixturesPath = '../';
