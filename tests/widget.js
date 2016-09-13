@@ -1,9 +1,9 @@
 describe('Widget', function(){
 	
-	jasmine.getFixtures().fixturesPath = 'tests/';
+	jasmine.getFixtures().fixturesPath = './';
 	jasmine.getStyleFixtures().fixturesPath = 'src/css/';
     if(typeof standalone != 'undefined' && standalone){
-        jasmine.getFixtures().fixturesPath = './';
+        jasmine.getFixtures().fixturesPath = '../';
         jasmine.getStyleFixtures().fixturesPath = './../src/css/';
     }
 
@@ -69,7 +69,7 @@ describe('Widget', function(){
 	
 	describe('Initial state', function(){
 		it('Should have a rate of 3', function(){
-			expect($('#valuemedia')).toContainText('3');
+			expect($('#valuemedia a')).toContainText('0 ' + WidgetConf.strings('CUSTOMER REVIEW'));
 			//expect($("#widget_stars_value_3")).toBeChecked();
 		});
 		

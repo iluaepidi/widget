@@ -176,14 +176,17 @@ var WidgetUI = {
         WidgetAPI.getAverageAndComments(WidgetUI.setWidgetStateCallback);
     },
     setWidgetStateCallback: function(data){
-        var ncomments = data.comments.length > 1 ? WidgetConf.strings('COMMENTS') : WidgetConf.strings('COMMENT');
-        var rating_text = '' + data.value + '/5 <a href="#widget_stars_comments_part">' + data.comments.length + ' ' + ncomments + '</a>';
-        $("#valuemedia").html(rating_text);
+        var ncomments = data.comments.length > 1 ? WidgetConf.strings('CUSTOMER REVIEWS') : WidgetConf.strings('CUSTOMER REVIEW');
+        var rating_text = '' + data.value + ' ' + WidgetConf.strings('OUT OF') + ' 5 ' + WidgetConf.strings('STARS');
+        var review_test = '<a href="#widget_stars_comments_part">' + data.comments.length + ' ' + ncomments + '</a>';
+        $("#starstext").html(rating_text);
+        $("#valuemedia").html(review_test);
         var stars_rate = '';
         for(var i = 1; i <= 5; i++){
             stars_rate += (i <= data.value) ? '&#9733;' : '&#9734;';
         }
         $("#valuemedia_stars").html(stars_rate);
+        $('#review_stars').html('<span class="stars">' + stars_rate + '</span> <span class="visuallyhidden">' + rating_text + '</span> ' + $('#valuemedia a').text());
         $("#widget_comments_ul").empty();
         WidgetUI.setAddEditComment(false);
         $("#morecomments").show();
@@ -308,10 +311,11 @@ var WidgetUI = {
             histogram[data[i].value - 1].votes++;
             histogram[data[i].value - 1].percent = histogram[data[i].value - 1].votes * 100 / data.length;
         }
+        histogram.reverse();
         for(var i = 0; i < histogram.length; i++){
             $('#histogram table tr').eq(i).find('td').html(
-                $('<span>').css({width: histogram[i].percent + '%'}).text(histogram[i].percent.toFixed(2) + '%')
-            );
+                $('<div>').append($('<span>').css({width: histogram[i].percent + '%'}).html('&nbsp;'))
+            ).append(histogram[i].percent.toFixed(2) + '%');
         }
     },
     likeComment: function(IdComment){
@@ -342,9 +346,14 @@ var WidgetUI = {
         $("#morecomments").hide();
     },
     addComment: function(comment){
-        var img = '<img src="src/img/user' + comment.value + 'star.png" alt="" height="28" width="28">';
-        var title = '<strong><span>' + comment.title + '</span> (' + comment.value + '/5)</strong>';
-        var date = '<span class="date">&#128197 ' + new Date(comment.date).toLocaleDateString(WidgetConf.currentLocale()) + '</span>';
+        var img = '<img src="src/img/user.png" alt="" height="28" width="28">';
+        var stars = '';
+        for(var i = 1; i <= 5; i++){
+            stars += (i <= comment.value) ? '&#9733;' : '&#9734;';
+        }
+        var stars_text = '<span class="visuallyhidden">' + comment.value + ' ' + WidgetConf.strings('OUT OF') + ' 5 ' + WidgetConf.strings('STARS') + '</span>';
+        var title = '<strong><span>' + comment.title + '</span> ' + stars_text + stars + '</strong>';
+        var date = '<span class="date"> ' + new Date(comment.date).toLocaleDateString(WidgetConf.currentLocale()) + '</span>';
         var body = '<div>' + comment.c + '</div>';
         var html = img + title + '<br/>' + date + '<br />' + body;
         var li = $('<li>').html(html).addClass('user-' + comment.user).addClass('comment-' + comment.id).attr({tabIndex:0});
@@ -375,8 +384,8 @@ var WidgetUI = {
                 if(WidgetConf.isVendor && this.user == WidgetConf.user){
                     var reply_edit   = $('<a>').attr({href:'#'}).text(WidgetConf.strings('EDIT REPLY')).addClass('edit_reply blue_button').data({IdReply: this.id, IdComment: comment.id});
                     var reply_delete = $('<a>').attr({href:'#'}).text(WidgetConf.strings('DELETE REPLY')).addClass('delete_reply red_button').data({IdReply: this.id, IdComment: comment.id});
-                    li_reply.append(reply_edit);
                     li_reply.append(reply_delete);
+                    li_reply.append(reply_edit);
                     //Remove Reply comment link
                     //Hide for backward compatibility
                     li.find('.reply_button').hide();
@@ -452,15 +461,19 @@ function selectuser(usercode){
     if(usercode === 1){
         $('#username').html('Nacho');
         WidgetConf.user = '1';
+        WidgetConf.isVendor = false;
     }else if(usercode === 2){
         $('#username').html('Esteban');
         WidgetConf.user = '2';
+        WidgetConf.isVendor = false;
     }else if(usercode === 3){
         $('#username').html('Manuel');
         WidgetConf.user = '3';
+        WidgetConf.isVendor = false;
     }else if(usercode === 4){
         $('#username').html('Pablo');
         WidgetConf.user = '4';
+        WidgetConf.isVendor = true;
     }
     $('#user-menu').toggle();
     WidgetUI.resetWidget();
