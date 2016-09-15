@@ -177,10 +177,11 @@ var WidgetUI = {
     },
     setWidgetStateCallback: function(data){
         var ncomments = data.comments.length > 1 ? WidgetConf.strings('CUSTOMER REVIEWS') : WidgetConf.strings('CUSTOMER REVIEW');
-        var rating_text = '' + data.value + ' ' + WidgetConf.strings('OUT OF') + ' 5 ' + WidgetConf.strings('STARS');
-        var review_test = '<a href="#widget_stars_comments_part">' + data.comments.length + ' ' + ncomments + '</a>';
+        var rating_text = '<span itemprop="ratingValue">' + data.value + '</span> ' + WidgetConf.strings('OUT OF') + ' <span itemprop="bestRating">5</span> ' + WidgetConf.strings('STARS');
+        var review_test = '<a href="#widget_stars_comments_part"><span itemprop="ratingCount">' + data.comments.length + '</span> ' + ncomments + '</a>';
         $("#starstext").html(rating_text);
         $("#valuemedia").html(review_test);
+        $('#product_name').attr('content', WidgetConf.id);
         var stars_rate = '';
         for(var i = 1; i <= 5; i++){
             stars_rate += (i <= data.value) ? '&#9733;' : '&#9734;';
