@@ -65,7 +65,13 @@ This part is all the logic for creaccion the widget and behavior.
 
 # Running test
 
-In order to run tests you may open the SpecRunner.html file provided in tests folder. That will run Jasmine tests provided with User Feedback Widget.
+In order to run tests you may run the following command in the console:
+```
+grunt jasmine
+```
+That will run Jasmine tests provided with User Feedback Widget.
+
+Aditionally you may open the SpecRunner.html file provided in tests folder.
 
 [http://localhost:6941/tests/SpecRunner.html](http://localhost:6941/tests/SpecRunner.html)
 
